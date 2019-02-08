@@ -1,0 +1,15 @@
+# Fix osxfs latency issue with volumes
+version: "3.4"
+
+services:
+  server:
+    volumes:
+      - .:/var/www/html:cached
+
+  wordpress:
+    volumes:
+      - .:/var/www/html:cached
+
+  wp:
+    volumes:
+      - .:/var/www/html:cached
