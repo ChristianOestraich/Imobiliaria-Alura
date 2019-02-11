@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Imobiliária Malura</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
-</head>
-<body>
+<!--get_header, faz a função do include do php, ele é padrão do WordPress -->
+<?php get_header();?>
 
-    <h1>Bem Vindo!!</h1>
+<h1>Bem Vindo!!</h1>
 
-</body>
-</html>
+<?php get_footer();?>
+<!--get_footer, faz a função do include do php -->
