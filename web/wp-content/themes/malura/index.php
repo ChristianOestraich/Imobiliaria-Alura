@@ -10,7 +10,8 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
 ?>
-        <h2><?php the_title();?></h2> <!--essa função exibi o titulo do post.-->
+        <?php the_post_thumbnail();?> <!-- essa função exibi a imagem em destaque. -->
+        <h2><?php the_title();?></h2> <!-- essa função exibi o titulo do post.-->
         <div><?php the_content();?></div> <!-- esse função exibi a descrição do post.-->
 <?php
     }
