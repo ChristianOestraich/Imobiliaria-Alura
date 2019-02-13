@@ -7,11 +7,12 @@
         <h1>Bem Vindo ao Maluras!</h1>
         <ul class="imoveis-listagem">
             <?php
-                // essa validação verifica se tem post.
-                if (have_posts()) {
+                $args = array('post_type' => 'imovel');
+                $loop = new WP_Query($args); // essa variável pesquisa no banco se tem imóveis.
+                if ($loop->have_posts()) {
 
-                    while (have_posts()) {
-                        the_post();
+                    while ($loop->have_posts()) {
+                        $loop->the_post();
                 ?>
                         <li class="imoveis-listagem-item">
                             <?php the_post_thumbnail();?> <!-- essa função exibi a imagem em destaque. -->
