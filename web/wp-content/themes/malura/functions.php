@@ -49,3 +49,14 @@ function geraTitule() {   // deixa a criterio do usuário modificar o nome do si
     bloginfo('name');
     if (!is_home() ) echo '|';
 }
+
+$labels = array(
+
+);
+
+$args = array(
+
+    //'labels' = $labels
+);
+
+register_taxonomy('localizacao', 'imovel', $args); // Taxonomia é utilizada para ajudar a localizar algo.
