@@ -20,7 +20,7 @@
        <?php
             }
         }
-            if( is_page('contato') ) {
+            if( is_page('contato') ) { // verifica a pagina que precisa desse formulário.
             ?>
             <form>
 			<div class="form-nome">
