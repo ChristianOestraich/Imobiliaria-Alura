@@ -10,3 +10,15 @@
 	<?php	wp_head(); ?> <!--Coloca o painel de administrador no cabeçario do site -->
 </head>
 <body>
+<header>
+
+    <div class="container">
+        <?php
+            $args = array(
+                'theme_location' => 'header-menu' // procura a localização do tema.
+            );
+            wp_nav_menu($args); // chamada do menu na tela.
+        ?>
+    </div>
+
+</header>

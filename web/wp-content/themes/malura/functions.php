@@ -38,3 +38,9 @@ function register_post_type_imoveis() {
 
 add_action('init','register_post_type_imoveis'); // A função dele é chamar tarefas no painel do WordPress.
 
+function registrar_menu_navegacao() {
+
+    register_nav_menu('header-menu','main-menu'); // registra o menu de navegação.
+}
+
+add_action('init','registrar_menu_navegacao');
