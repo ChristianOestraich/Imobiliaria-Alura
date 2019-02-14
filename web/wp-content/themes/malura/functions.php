@@ -44,3 +44,8 @@ function registrar_menu_navegacao() {
 }
 
 add_action('init','registrar_menu_navegacao');
+
+function geraTitule() {   // deixa a criterio do usuário modificar o nome do site no painel do WordPress.
+    bloginfo('name');
+    if (!is_home() ) echo '|';
+}

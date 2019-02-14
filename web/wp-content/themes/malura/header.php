@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="<?= $home; ?>/assets/css/page.css"> <!-- Esse comando traz a o page.css de dentro do tema-->
     <link rel="stylesheet" href="<?= $home; ?>/assets/css/single.css"> <!-- Esse comando traz a o single.css de dentro do tema-->
 
-    <!-- deixa a criterio do usuário modificar o nome do site no painel do WordPress. -->
     <title>
-        <?php bloginfo('name')?>
+            <?php geraTitule(); ?>
     </title>
 
 	<?php wp_head(); ?> <!--Coloca o painel de administrador no cabeçario do site -->
