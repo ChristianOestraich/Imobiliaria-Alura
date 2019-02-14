@@ -2,7 +2,8 @@
 <html>
 <head>
 	<?php $home = get_template_directory_uri(); ?>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <title>Imobiliária Malura</title>
 	<link rel="stylesheet" href="<?= $home ?>/assets/css/reset.css"> <!-- Esse comando traz a o reset.css de dentro do tema-->
 	<link rel="stylesheet" href="<?= $home; ?>/assets/css/index.css"> <!-- Esse comando traz a o index.css de dentro do tema-->
     <link rel="stylesheet" href="<?= $home; ?>/assets/css/comum.css"> <!-- Esse comando traz a o comum.css de dentro do tema-->
