@@ -46,27 +46,38 @@ function registrar_menu_navegacao() {
 add_action('init','registrar_menu_navegacao');
 
 function geraTitule() {   // deixa a criterio do usuário modificar o nome do site no painel do WordPress.
-    bloginfo('name');
-    if (!is_home() ) echo '|';
+    if( is_home() ) {
+		bloginfo('name');
+	} else {
+		bloginfo('name');
+		echo ' | ';
+		the_title();
+	}
 }
 
-$nomeSingular = 'Localização';
-$nomePlural = 'Localizações';
+function registra_taxonomia_localizacao() {
+
+    $nomeSingular = 'Localização';
+    $nomePlural = 'Localizações';
 
 
-$labels = array(
+    $labels = array(
 
-    'name' => $nomePlural,
-    'singular-name' => $nomeSingular,
-    'edit_item' => 'Editar' . $nomeSingular,
-    'add_new_item' => 'Adicionar nova' . $nomeSingular
-);
+        'name' => $nomePlural,
+        'singular-name' => $nomeSingular,
+        'edit_item' => 'Editar' . $nomeSingular,
+        'add_new_item' => 'Adicionar nova' . $nomeSingular
+    );
 
-$args = array(
+    $args = array(
 
-    'labels' => $labels,
-    'public' => true,
-    'hierarchical' => true // Sublocalização das cidades.
-);
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true // Sublocalização das cidades.
+    );
 
-register_taxonomy('localizacao', 'imovel', $args); // Taxonomia é utilizada para ajudar a localizar algo.
+    register_taxonomy('localizacao', 'imovel', $args); // Taxonomia é utilizada para ajudar a localizar algo.
+
+}
+
+add_action( 'init', 'registra_taxonomia_localizacao' );
