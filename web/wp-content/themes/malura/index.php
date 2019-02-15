@@ -1,16 +1,37 @@
 <!--get_header, faz a função do include do php, ele é padrão do WordPress -->
-<?php get_header(); ?>
+<?php
+    get_header();
+    $queryTaxonomy = array_key_exists('taxonomy', $_GET); // esse comando filtra se tem busca ou não.
+    if ($queryTaxonomy && $_GET['taxonomy'] === '') {
+
+        wp_redirect(home_url()); // redireciona para a url escolida.
+    }
+?>
 <main class="home-main">
 	<div class="container">
+        <?php $taxonomias = get_terms('localizacao'); ?> <!-- traz todas a localizações do bando de dados -->
+        <form class="busca-localizacao-form" action="<?= bloginfo('url'); ?>" method="get">
+            <div class="taxonomy-select-wrapper">
+                <select name="taxonomy">
+                    <option value=""> Todos os imóveis </option>
+                    <?php foreach ($taxonomias as $taxonomia) { ?>
+                    <option value="<?= $taxonomia->slug ?>"><?= $taxonomia->name; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <button type="submit">Filtrar</button>
+        </form>
 
         <?php
+        if ($queryTaxonomy) {
             $taxQuery = array(
                 array(
                     'taxonomy'=>'localizacao', // faz a localização
                     'field' => 'slug',  // Procura qual o campo da localização
-                    'terms' => 'rio-de-janeiro', // Qual item vc vai querer
+                    'terms' => $_GET['taxonomy'] // Qual item vc vai querer
                 )
             );
+        }
 			$args = array(
                 'post_type' => 'imovel',
                  'tax_query' => $taxQuery
