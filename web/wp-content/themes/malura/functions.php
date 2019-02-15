@@ -50,13 +50,23 @@ function geraTitule() {   // deixa a criterio do usuário modificar o nome do si
     if (!is_home() ) echo '|';
 }
 
+$nomeSingular = 'Localização';
+$nomePlural = 'Localizações';
+
+
 $labels = array(
 
+    'name' => $nomePlural,
+    'singular-name' => $nomeSingular,
+    'edit_item' => 'Editar' . $nomeSingular,
+    'add_new_item' => 'Adicionar nova' . $nomeSingular
 );
 
 $args = array(
 
-    //'labels' = $labels
+    'labels' => $labels,
+    'public' => true,
+    'hierarchical' => true // Sublocalização das cidades.
 );
 
 register_taxonomy('localizacao', 'imovel', $args); // Taxonomia é utilizada para ajudar a localizar algo.
