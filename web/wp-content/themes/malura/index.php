@@ -3,8 +3,18 @@
 <main class="home-main">
 	<div class="container">
 
-		<?php
-			$args = array( 'post_type' => 'imovel' );
+        <?php
+            $taxQuery = array(
+                array(
+                    'taxonomy'=>'localizacao', // faz a localização
+                    'field' => 'slug',  // Procura qual o campo da localização
+                    'terms' => 'rio-de-janeiro', // Qual item vc vai querer
+                )
+            );
+			$args = array(
+                'post_type' => 'imovel',
+                 'tax_query' => $taxQuery
+            );
 			$loop = new WP_Query( $args ); // essa variável pesquisa no banco se tem imóveis.
 			if( $loop->have_posts() ) { ?>
 			<ul class="imoveis-listagem">
